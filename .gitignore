@@ -1,4 +1,7 @@
 service-account-key.json
+openapi2-run.yaml
+Architecture.PNG
+
 # Local .terraform directories
 **/.terraform/*
 
