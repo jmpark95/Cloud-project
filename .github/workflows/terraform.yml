@@ -28,11 +28,19 @@ jobs:
          - name: Setup terraform
            uses: hashicorp/setup-terraform@v1
 
+         - name: Configure Google Cloud credentials
+           env:
+              GCP_CREDENTIALS_JSON: ${{ secrets.CREDENTIALS }}
+           run: echo "$GCP_CREDENTIALS_JSON" > gcp_credentials.json
+
          - name: Initialize Terraform
+           env:
+              GCP_CREDENTIALS_JSON: ${{ secrets.CREDENTIALS }}
            run: |
               terraform init \
                 -backend-config="bucket=tf-state-prod" \
                 -backend-config="prefix=terraform/state" \
+                -backend-config="credentials=~/gcp_credentials.json"
 
          - name: Terraform Format
            run: terraform fmt -check
