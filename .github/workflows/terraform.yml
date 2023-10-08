@@ -1,0 +1,44 @@
+name: "Terraform"
+
+on:
+   push:
+      branches:
+         - main
+   pull_request:
+      branches:
+         - main
+
+env:
+   TF_VAR_project: ${{ secrets.PROJECT }}
+   TF_VAR_credentials_file: ${{ secrets.CREDENTIALS }}
+
+jobs:
+   terraform:
+      name: "Terraform"
+      runs-on: ubuntu-latest
+      defaults:
+         run:
+            shell: bash
+
+      steps:
+         - name: Checkout
+           uses: actions/checkout@v2
+
+         - name: Set GOOGLE_CREDENTIALS
+           run: echo "${{ secrets.CREDENTIALS }}" | base64 --decode > credentials_file.json
+
+         - name: Setup terraform
+           uses: hashicorp/setup-terraform@v1
+
+         - name: Terraform Init
+           run: terraform init
+
+         - name: Terraform Format
+           run: terraform fmt -check
+
+         - name: Terraform Plan
+           run: terraform plan -input=false
+
+         - name: Terraform Apply
+           if: github.ref == 'refs/heads/main'
+           run: terraform apply -auto-approve -input=false

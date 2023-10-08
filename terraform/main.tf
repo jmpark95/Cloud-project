@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "google" {
-  credentials = var.gcp-creds
+  credentials = file(var.credentials_file)
   project     = var.project
   region      = var.region
   zone        = var.zone
