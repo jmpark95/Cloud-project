@@ -44,17 +44,3 @@ resource "google_compute_url_map" "default" {
     }
   }
 }
-
-resource "google_dns_managed_zone" "my_zone" {
-  name        = "minparkdev-zone"
-  dns_name    = "minpark.dev."
-}
-
-resource "google_dns_record_set" "a_record" {
-  name         = "minpark.dev."
-  managed_zone = google_dns_managed_zone.my_zone.name
-  type         = "A"
-  ttl          = 300
-  rrdatas      = [google_compute_global_forwarding_rule.default.ip_address]
-}
-
