@@ -1,5 +1,6 @@
 terraform {
   backend "gcs" {
+    credentials = var.credentials_file
     bucket  = "tf-state-prod"
     prefix  = "terraform/state"
   }
