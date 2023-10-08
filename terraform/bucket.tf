@@ -20,9 +20,9 @@ resource "google_storage_bucket_object" "indexpage" {
 }
 
 resource "google_storage_bucket_object" "script" {
-  name = "script.js"
-  source  = "src/script.js"
-  bucket  = google_storage_bucket.static-website.id
+  name   = "script.js"
+  source = "src/script.js"
+  bucket = google_storage_bucket.static-website.id
 }
 
 # Make publicly readable
