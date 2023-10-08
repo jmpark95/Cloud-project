@@ -46,7 +46,7 @@ resource "google_compute_url_map" "default" {
 }
 
 resource "google_dns_managed_zone" "my_zone" {
-  name        = "minpark.dev-zone"
+  name        = "minparkdev-zone"
   dns_name    = "minpark.dev."
 }
 
