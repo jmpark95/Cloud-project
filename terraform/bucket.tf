@@ -15,7 +15,7 @@ resource "google_storage_bucket" "static-website" {
 resource "google_storage_bucket_object" "indexpage" {
   name         = "index.html"
   # source       = "${path.module}/src/index.html"
-  content = filebase64("${path.module}/src/index.html")
+  content = filebase64("${path.module}/../src/index.html")
   content_type = "text/html"
   bucket       = google_storage_bucket.static-website.id
 }
@@ -23,7 +23,7 @@ resource "google_storage_bucket_object" "indexpage" {
 resource "google_storage_bucket_object" "script" {
   name = "script.js"
   # source       = "${path.module}/src/script.js"
-  content = filebase64("${path.module}/src/script.js")
+  content = filebase64("${path.module}/../src/script.js")
   bucket  = google_storage_bucket.static-website.id
 }
 
