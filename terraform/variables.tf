@@ -1,4 +1,6 @@
-variable "project" {}
+variable "project" {
+  default = ""
+}
 
 variable "gcp-creds" {
   default = ""
