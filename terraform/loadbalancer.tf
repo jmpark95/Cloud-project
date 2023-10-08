@@ -47,11 +47,11 @@ resource "google_compute_url_map" "default" {
 
 resource "google_dns_managed_zone" "my_zone" {
   name        = "minpark.dev-zone"
-  dns_name    = "minpark.dev"
+  dns_name    = "minpark.dev."
 }
 
 resource "google_dns_record_set" "a_record" {
-  name         = "minpark.dev"
+  name         = "minpark.dev."
   managed_zone = google_dns_managed_zone.my_zone.name
   type         = "A"
   ttl          = 300
