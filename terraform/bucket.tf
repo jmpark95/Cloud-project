@@ -14,14 +14,14 @@ resource "google_storage_bucket" "static-website" {
 # Add objects
 resource "google_storage_bucket_object" "indexpage" {
   name         = "index.html"
-  source       = "./src/index.html"
+  source       = filebase64("${path.module}/../src/index.html")
   content_type = "text/html"
   bucket       = google_storage_bucket.static-website.id
 }
 
 resource "google_storage_bucket_object" "script" {
   name         = "script.js"
-  source       = "./src/script.js"
+  source       = filebase64("${path.module}/../src/script.js")
   bucket       = google_storage_bucket.static-website.id
 }
 
