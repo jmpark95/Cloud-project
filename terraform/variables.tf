@@ -1,9 +1,7 @@
 variable "project" {
-  default = ""
 }
 
-variable "gcp-creds" {
-  default = ""
+variable "credentials_file" {
 }
 
 variable "region" {
