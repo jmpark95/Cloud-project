@@ -24,9 +24,6 @@ jobs:
          - name: Checkout
            uses: actions/checkout@v2
 
-         - name: Set GOOGLE_CREDENTIALS
-           run: echo "${{ secrets.CREDENTIALS }}" | base64 --decode > credentials_file.json
-
          - name: Setup terraform
            uses: hashicorp/setup-terraform@v1
 
