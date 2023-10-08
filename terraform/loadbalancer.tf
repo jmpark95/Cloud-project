@@ -20,7 +20,7 @@ resource "google_compute_backend_bucket" "static-website" {
   name        = "static-website-files"
   description = "Static assets for the website"
   bucket_name = google_storage_bucket.static-website.name
-  enable_cdn = true
+  enable_cdn  = true
 }
 
 
