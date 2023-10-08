@@ -1,9 +1,7 @@
 terraform {
-  cloud {
-    organization = "GCP-terraform-workflow-minpark"
-    workspaces {
-      name = "state-store"
-    }
+  backend "gcs" {
+    bucket  = "tf-state-prod"
+    prefix  = "terraform/state"
   }
 
   required_providers {
