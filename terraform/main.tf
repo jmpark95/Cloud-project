@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "GCP-terraform-workflow-minpark"
+    workspaces {
+      name = "state-store"
+    }
+  }
+
   required_providers {
     google = {
       source  = "hashicorp/google"
