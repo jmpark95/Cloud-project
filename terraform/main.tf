@@ -1,9 +1,4 @@
 terraform {
-  backend "gcs" {
-    bucket  = "tf-state-prod"
-    prefix  = "terraform/state"
-  }
-
   required_providers {
     google = {
       source  = "hashicorp/google"
@@ -13,7 +8,7 @@ terraform {
 }
 
 provider "google" {
-  credentials = var.credentials_file
+  credentials = file(var.credentials_file)
   project     = var.project
   region      = var.region
   zone        = var.zone
