@@ -13,3 +13,10 @@ provider "google" {
   region      = var.region
   zone        = var.zone
 }
+
+provider "google-beta" {
+  credentials = var.gcp_credentials
+  project     = var.project
+  region      = var.region
+  zone        = var.zone
+}
