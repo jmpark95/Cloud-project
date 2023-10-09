@@ -7,4 +7,5 @@ Todo: Read about serverless cold start. Edit - turns out the minimum number of i
 -  October 5: Placed API Gateway in front of cloud run service + wired frontend to API to retrieve viewcount
 -  October 7: Terraform provisioned load balancer, SSL.
 -  October 8: Set up Terraform cloud VCS driven workflow
+-  October 9: Terraform provisioned firestore db
    ![Architecture](https://github.com/jmpark95/Cloud-project/assets/118156038/e1e0ec86-acd9-41db-8dfa-5e049ffb7db4)
