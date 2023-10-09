@@ -28,7 +28,7 @@ resource "google_secret_manager_secret_iam_policy" "policy" {
 
 resource "google_cloudbuildv2_connection" "github_connection" {
   location = var.region
-  name = "GCP-node-service-connection"
+  name = "github_connection"
 
   github_config {
     app_installation_id = 42090683
@@ -40,7 +40,7 @@ resource "google_cloudbuildv2_connection" "github_connection" {
 
 resource "google_cloudbuildv2_repository" "node_repository" {
   name = "nodejs-service-repo"
-  parent_connection = google_cloudbuildv2_connection.github_connection.name
+  parent_connection = google_cloudbuildv2_connection.github_connection.id
   remote_uri = "https://github.com/jmpark95/Cloud-project-Nodejs-service.git"
 }
 
