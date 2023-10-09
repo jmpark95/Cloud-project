@@ -54,6 +54,6 @@ resource "google_cloudbuild_trigger" "repo-trigger" {
     }
   }
 
-  filename = "./"
+  filename = "cloudbuild.yaml"
 }
 
