@@ -6,17 +6,20 @@
 -  October 8: Set up Terraform cloud VCS driven workflow
 -  October 9: Terraform provisioned firestore db
 -  October 10: Set up simple CD flow: Push to main -> Cloud build -> Container registry -> Cloud run
+-  Completed terraform automation
 
    ![Architecture](https://github.com/jmpark95/Cloud-project/assets/118156038/e1e0ec86-acd9-41db-8dfa-5e049ffb7db4)
 
-   \*Need to work on:
+   \*Todos:
 
 -  View count taking too long to show(~6 seconds?). Edit - turns out the minimum number of instances was set to 0, causing serverless cold start. Changed to 1
 
--  Secure api
+-  Securing api
 
--  Still manually having to add A record to Cloud DNS. Come back later to automate
+-  Still manually having to add A record to Cloud DNS. Come back to this later
 
--  google_cloud_run_v2_service image needs to be in place before provisioning. Need to set up nodejs service, push the image to container registry(cloudbuild.yaml) first, then terraform apply to create cloud run, then uncomment cloudbuild to allow gitops continuous deployment, which will then successfuly deploy any changes made to github repo. Not sure if right flow? Can't seem to find another way. Tried researching more on terraform cloudbuild_trigger, but still no answer. Come back to this later.
+-  Need to build and push the container first in the nodejs service repo, then terraform provision cloud run to create the service, then uncomment the rest of cloudbuild.yml to allow pushes to main to be deployed. If I create the cloud run service(through cloudbuild.yml) first, google_cloud_run_v2_service throws an error. Not sure if right flow? Can't seem to find another way. Tried researching more on terraform cloudbuild_trigger, but still no answer. Come back to this later.
 
--  terraform destroy, then apply again - firestore database already exists
+-  Manually uploading openapi.yml file. Terraform seems super complicated with api gateway
+
+-  Firestore doesn't completely get removed when doing Terraform destroy. Seems like a google thing?
