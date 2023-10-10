@@ -9,17 +9,3 @@
 -  Completed terraform automation
 
 ![Architecture](https://github.com/jmpark95/Cloud-project/assets/118156038/155f9826-b696-404a-bcd3-c64b90b7cedf)
-
-   \*Todos:
-
--  View count taking too long to show(~6 seconds?). Edit - turns out the minimum number of instances was set to 0, causing serverless cold start. Changed to 1
-
--  Securing api
-
--  Still manually having to add A record to Cloud DNS. Come back to this later
-
--  Need to build and push the container first in the nodejs service repo, then terraform provision cloud run to create the service, then uncomment the rest of cloudbuild.yml to allow pushes to main to be deployed. If I create the cloud run service(through cloudbuild.yml) first, google_cloud_run_v2_service throws an error. Not sure if right flow? Can't seem to find another way. Tried researching more on terraform cloudbuild_trigger, but still no answer. Come back to this later.
-
--  Manually uploading openapi.yml file. Terraform seems super complicated with api gateway
-
--  Firestore doesn't completely get removed when doing Terraform destroy. Seems like a google thing?
