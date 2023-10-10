@@ -3,9 +3,9 @@ resource "google_cloud_run_v2_service" "default" {
   location = var.region
 
   template {
-    # scaling {
-    #   min_instance_count = 1
-    # }
+    scaling {
+      min_instance_count = 1
+    }
     containers {
       image = "gcr.io/static-website-project-400707/nodejsimage"
     }
