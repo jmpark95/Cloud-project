@@ -1,6 +1,7 @@
 credentials_file.json
 openapi2-run.yaml
 Architecture.PNG
+.terraform.lock.hcl
 
 # Local .terraform directories
 **/.terraform/*
