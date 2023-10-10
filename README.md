@@ -8,7 +8,7 @@
 -  October 10: Set up simple CD flow: Push to main -> Cloud build -> Container registry -> Cloud run
 -  Completed terraform automation
 
-   ![Architecture](https://github.com/jmpark95/Cloud-project/assets/118156038/e1e0ec86-acd9-41db-8dfa-5e049ffb7db4)
+![Architecture](https://github.com/jmpark95/Cloud-project/assets/118156038/155f9826-b696-404a-bcd3-c64b90b7cedf)
 
    \*Todos:
 
