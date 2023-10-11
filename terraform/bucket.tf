@@ -25,6 +25,12 @@ resource "google_storage_bucket_object" "script" {
   bucket = google_storage_bucket.static-website.id
 }
 
+resource "google_storage_bucket_object" "image" {
+  name   = "architecture.png"
+  source = "../src/Architecture.PNG"
+  bucket = google_storage_bucket.static-website.id
+}
+
 # Make publicly readable
 resource "google_storage_bucket_iam_member" "member" {
   provider = google
